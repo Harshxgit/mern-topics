@@ -1,0 +1,28 @@
+
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = "postgresql://testing_owner:UR24OsgnYzkl@ep-polished-band-a4lfyd3k.us-east-1.aws.neon.tech/testing?sslmode=require"
+}
+// CREATE TABLE users{
+//   id SERIAL PRIMARY KEY,
+// }
+
+model User{
+  id        Int     @id @default(autoincrement())
+  email     String  @unique
+  firstName String?
+  lastName  String?
+  password  String
+}
+
+model Todo {
+  id           Int     @id @default(autoincrement())
+  title        String
+  description  Boolean @default(false)
+  userId       Int
+}
