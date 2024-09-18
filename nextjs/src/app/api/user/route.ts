@@ -7,6 +7,10 @@ export function GET(){
         name : "harshit"
     })
 }
-export function POST(req : NextRequest){
+export async function  POST(req : NextRequest){
     //extract body
+    const body = await req.json()
+    return Response.json({
+        "message" : "request accepted"
+    })
 }
